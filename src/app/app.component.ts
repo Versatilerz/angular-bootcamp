@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string = 'ClientApp';
-  hellowWorld: string = 'Hell World';
+  hellowWorld: string = 'Hello World';
 }
