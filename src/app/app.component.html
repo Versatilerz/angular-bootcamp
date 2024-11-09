@@ -1,6 +1,17 @@
-{{ hellowWorld + " - " + title }}
+<div class="spaced">
+  {{ hellowWorld + " - " + title }}
+</div>
 <hr />
-<button (click)="incrementClicked()">Click me</button>
-{{ "This button was clicked " + clicked + " times" }}
-
-<app-users></app-users>
+<div class="spaced">
+  <button (click)="incrementClicked()">Click me</button>
+  {{ "This button was clicked " + clicked + " times" }}
+  <br />
+  <input type="text" [value]="clicked" />
+</div>
+<div class="spaced">
+  <button (dblclick)="incrementDoubleClicked()">Double click me</button>
+  {{ "This button was double clicked " + doubleClicked + " times" }}
+</div>
+<div class="spaced">
+  <app-users></app-users>
+</div>
