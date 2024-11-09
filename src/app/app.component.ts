@@ -11,6 +11,10 @@ export class AppComponent {
   clicked: number = 0;
   doubleClicked: number = 0;
 
+  willShowBlock: boolean = true;
+
+  valuesToLoop: number[] = [1, 3, 5, 7, 9, 11];
+
   incrementClicked = () => {
     this.clicked += 1;
   };

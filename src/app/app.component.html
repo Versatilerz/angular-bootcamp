@@ -5,6 +5,7 @@
 <div class="spaced">
   <button (click)="incrementClicked()">Click me</button>
   {{ "This button was clicked " + clicked + " times" }}
+  <div *ngIf="clicked > 5">You have clicked more then 5 times</div>
   <br />
   <!-- <input type="text" [value]="clicked" /> -->
   <input type="number" [(ngModel)]="clicked" />
@@ -13,6 +14,17 @@
   <button (dblclick)="incrementDoubleClicked()">Double click me</button>
   {{ "This button was double clicked " + doubleClicked + " times" }}
 </div>
+
+<div class="spaced" *ngIf="willShowBlock">
+  This is the conditionol displayed black
+</div>
+
+<div class="spaced">
+  <div *ngFor="let number of valuesToLoop; let i = index">
+    This is index {{ i }} of the array of random numbers {{ number }}
+  </div>
+</div>
+
 <div class="spaced">
   <app-users></app-users>
 </div>
