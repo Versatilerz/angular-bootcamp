@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +18,7 @@ export class AppComponent {
     willContextMenuShow: false,
     pageX: 0,
     pageY: 0,
+    contextClicked: false,
   };
 
   incrementClicked = () => {
@@ -28,10 +29,31 @@ export class AppComponent {
     this.doubleClicked += 1;
   };
 
-  toggleContextMenu = (showContextMenu: boolean, event: MouseEvent) => {
-    console.log(event);
-    this.contextMenuInfo.pageX = event.pageX;
-    this.contextMenuInfo.pageY = event.pageY;
+  toggleContextMenu = (
+    showContextMenu: boolean,
+    event: MouseEvent | null = null
+  ) => {
+    if (event !== null) {
+      event.preventDefault();
+      this.contextMenuInfo.pageX = event.pageX;
+      this.contextMenuInfo.pageY = event.pageY;
+    }
     this.contextMenuInfo.willContextMenuShow = showContextMenu;
+  };
+
+  @HostListener('document:click')
+  closeContextMenu = () => {
+    setTimeout(() => {
+      if (!this.contextMenuInfo.contextClicked) {
+        this.toggleContextMenu(false);
+      }
+    }, 10);
+  };
+
+  contextClick = () => {
+    this.contextMenuInfo.contextClicked = true;
+    setTimeout(() => {
+      this.contextMenuInfo.contextClicked = false;
+    }, 20);
   };
 }

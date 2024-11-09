@@ -34,6 +34,7 @@
   class="context-menu"
   [style.left.px]="contextMenuInfo.pageX"
   [style.top.px]="contextMenuInfo.pageY"
+  (click)="contextClick()"
 >
   This is the contextmenu
 </div>
