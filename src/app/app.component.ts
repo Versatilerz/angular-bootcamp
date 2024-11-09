@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title: string = 'ClientApp';
   hellowWorld: string = 'Hello World';
+  clicked: number = 0;
+
+  incrementClicked = () => {
+    this.clicked += 1;
+  };
 }
