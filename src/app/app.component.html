@@ -6,7 +6,8 @@
   <button (click)="incrementClicked()">Click me</button>
   {{ "This button was clicked " + clicked + " times" }}
   <br />
-  <input type="text" [value]="clicked" />
+  <!-- <input type="text" [value]="clicked" /> -->
+  <input type="number" [(ngModel)]="clicked" />
 </div>
 <div class="spaced">
   <button (dblclick)="incrementDoubleClicked()">Double click me</button>
