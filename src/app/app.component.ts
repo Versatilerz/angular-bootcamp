@@ -14,6 +14,11 @@ export class AppComponent {
   willShowBlock: boolean = true;
 
   valuesToLoop: number[] = [1, 3, 5, 7, 9, 11];
+  contextMenuInfo: any = {
+    willContextMenuShow: false,
+    pageX: 0,
+    pageY: 0,
+  };
 
   incrementClicked = () => {
     this.clicked += 1;
@@ -21,5 +26,12 @@ export class AppComponent {
 
   incrementDoubleClicked = () => {
     this.doubleClicked += 1;
+  };
+
+  toggleContextMenu = (showContextMenu: boolean, event: MouseEvent) => {
+    console.log(event);
+    this.contextMenuInfo.pageX = event.pageX;
+    this.contextMenuInfo.pageY = event.pageY;
+    this.contextMenuInfo.willContextMenuShow = showContextMenu;
   };
 }
