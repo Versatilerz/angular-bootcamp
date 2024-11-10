@@ -26,17 +26,31 @@
 </div>
 
 <div
+  [ngClass]="tooltipInfo.willShow ? 'tooltip-color' : ''"
   class="block-of-color"
   (contextmenu)="toggleContextMenu(true, $event)"
+  (mouseenter)="onMouseMove(true, $event)"
+  (mouseleave)="onMouseMove(false, $event)"
+  (mousemove)="onMouseMove(true, $event)"
 ></div>
+
 <div
-  *ngIf="contextMenuInfo.willContextMenuShow"
+  *ngIf="contextMenuInfo.willShow"
   class="context-menu"
   [style.left.px]="contextMenuInfo.pageX"
   [style.top.px]="contextMenuInfo.pageY"
   (click)="contextClick()"
 >
   This is the contextmenu
+</div>
+
+<div
+  *ngIf="tooltipInfo.willShow"
+  class="context-menu"
+  [style.left.px]="tooltipInfo.pageX - 55"
+  [style.top.px]="tooltipInfo.pageY + 15"
+>
+  This is the tooltip
 </div>
 
 <div class="spaced">

@@ -15,10 +15,17 @@ export class AppComponent {
 
   valuesToLoop: number[] = [1, 3, 5, 7, 9, 11];
   contextMenuInfo: any = {
-    willContextMenuShow: false,
+    willShow: false,
     pageX: 0,
     pageY: 0,
-    contextClicked: false,
+  };
+
+  contextClicked: boolean = false;
+
+  tooltipInfo: any = {
+    willShow: false,
+    pageX: 0,
+    pageY: 0,
   };
 
   incrementClicked = () => {
@@ -38,22 +45,32 @@ export class AppComponent {
       this.contextMenuInfo.pageX = event.pageX;
       this.contextMenuInfo.pageY = event.pageY;
     }
-    this.contextMenuInfo.willContextMenuShow = showContextMenu;
+    this.contextMenuInfo.willShow = showContextMenu;
   };
 
   @HostListener('document:click')
   closeContextMenu = () => {
     setTimeout(() => {
-      if (!this.contextMenuInfo.contextClicked) {
+      if (!this.contextClicked) {
         this.toggleContextMenu(false);
       }
     }, 10);
   };
 
   contextClick = () => {
-    this.contextMenuInfo.contextClicked = true;
+    this.contextClicked = true;
     setTimeout(() => {
-      this.contextMenuInfo.contextClicked = false;
+      this.contextClicked = false;
     }, 20);
   };
+
+  onMouseMove(inside: boolean, event: MouseEvent) {
+    console.log(event);
+    if (this.tooltipInfo.willShow !== inside) {
+      this.tooltipInfo.willShow = inside;
+    }
+
+    this.tooltipInfo.pageX = event.pageX;
+    this.tooltipInfo.pageY = event.pageY;
+  }
 }
