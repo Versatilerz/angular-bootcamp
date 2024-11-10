@@ -7,6 +7,8 @@ import { UserService } from '../services/user-service.service';
   styleUrl: './users.component.css',
 })
 export class UsersComponent {
+  constructor(public userService: UserService) {}
+
   // userList = [
   //   'Tucker Anselm',
   //   'Elmira Keddy',
@@ -36,9 +38,7 @@ export class UsersComponent {
   //   'Nanete Kitlee',
   // ];
 
-  constructor(public userService: UserService) {}
-
-  deleteUser = (index: number) => {
-    this.userService.userList.splice(index, 1);
-  };
+  // deleteUser = (index: number) => {
+  //   this.userService.userList.splice(index, 1);
+  // };
 }

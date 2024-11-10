@@ -9,7 +9,7 @@ import { UserService } from '../../services/user-service.service';
 export class UserSingleComponent {
   // @Input() user: string = '';
   @Input() index: number = -1;
-  @Output() deleteUser: EventEmitter<number> = new EventEmitter<number>();
+  // @Output() deleteUser: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(public userService: UserService) {}
 }
