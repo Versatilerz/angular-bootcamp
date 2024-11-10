@@ -1,1 +1,6 @@
-<p>users works!</p>
+<h1>Users</h1>
+<ol>
+  <li *ngFor="let user of userList; let i = index">
+    <app-user-single [user]="user"></app-user-single>
+  </li>
+</ol>
