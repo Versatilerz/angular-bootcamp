@@ -1,3 +1,14 @@
-{{ userService.userList[index] }}
-
-<button (click)="userService.deleteUser(index)">Delete</button>
+<div *ngIf="!editMode">
+  {{ userService.userList[index] }}
+  <button (click)="userService.deleteUser(index)">Delete</button>
+  <button (click)="toggleEdit(true, userService.userList[index])">
+    Edit user
+  </button>
+</div>
+<div *ngIf="editMode">
+  <input type="text" [(ngModel)]="tempName" />
+  <button (click)="toggleEdit(false, userService.userList[index])">
+    Cancel
+  </button>
+  <button (click)="userService.editUser(index, tempName)">Save name</button>
+</div>

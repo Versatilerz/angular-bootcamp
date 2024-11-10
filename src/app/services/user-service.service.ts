@@ -31,6 +31,10 @@ export class UserService {
     'Nanete Kitlee',
   ];
 
+  editUser = (index: number, name: string) => {
+    this.userList[index] = name;
+  };
+
   deleteUser = (index: number) => {
     this.userList.splice(index, 1);
   };
