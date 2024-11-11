@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserService } from '../services/user-service.service';
 
 @Component({
@@ -6,8 +6,16 @@ import { UserService } from '../services/user-service.service';
   templateUrl: './users.component.html',
   styleUrl: './users.component.css',
 })
-export class UsersComponent {
+export class UsersComponent implements OnInit, OnDestroy {
   constructor(public userService: UserService) {}
+
+  ngOnInit(): void {
+    console.log('component has been created');
+  }
+
+  ngOnDestroy(): void {
+    console.log('component is destroyed');
+  }
 
   // userList = [
   //   'Tucker Anselm',

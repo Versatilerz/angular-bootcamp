@@ -51,7 +51,7 @@
 >
   This is the tooltip
 </div> -->
-
-<div class="spaced">
+<button (click)="setShowUsers(!willShowUsers)">Toggle show users</button>
+<div *ngIf="willShowUsers" class="spaced">
   <app-users></app-users>
 </div>

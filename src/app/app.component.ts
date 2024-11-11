@@ -6,6 +6,8 @@ import { Component, HostListener } from '@angular/core';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+  willShowUsers: boolean = true;
+
   title: string = 'ClientApp';
   hellowWorld: string = 'Hello World';
   clicked: number = 0;
@@ -72,5 +74,9 @@ export class AppComponent {
 
     this.tooltipInfo.pageX = event.pageX;
     this.tooltipInfo.pageY = event.pageY;
+  }
+
+  setShowUsers(showUsers: boolean) {
+    this.willShowUsers = showUsers;
   }
 }
