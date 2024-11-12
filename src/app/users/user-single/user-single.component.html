@@ -1,11 +1,19 @@
-<div *ngIf="!editMode">
+<div
+  *ngIf="!editMode"
+  class="user-single-grid user-border"
+  [ngStyle]="textColor"
+>
   {{ userService.userList[index] }}
   <button (click)="userService.deleteUser(index)">Delete</button>
   <button (click)="toggleEdit(true, userService.userList[index])">
     Edit user
   </button>
 </div>
-<div *ngIf="editMode">
+<div
+  *ngIf="editMode"
+  class="user-single-grid user-border"
+  [ngStyle]="textColor"
+>
   <input type="text" [(ngModel)]="tempName" />
   <button (click)="toggleEdit(false, userService.userList[index])">
     Cancel

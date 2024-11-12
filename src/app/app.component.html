@@ -52,6 +52,8 @@
   This is the tooltip
 </div> -->
 <button (click)="setShowUsers(!willShowUsers)">Toggle show users</button>
+<input type="color" [(ngModel)]="textColorforChange" />
+<button (click)="triggerColorChange(textColorforChange)">color change</button>
 <div *ngIf="willShowUsers" class="spaced">
   <app-users></app-users>
 </div>

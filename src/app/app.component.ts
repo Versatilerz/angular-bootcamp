@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { UserService } from './services/user-service.service';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,13 @@ import { Component, HostListener } from '@angular/core';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+  constructor(public userService: UserService) {}
+
+  textColorforChange: string = 'black';
+  triggerColorChange(color: string) {
+    this.userService.colorHasChanged.next(color);
+  }
+
   willShowUsers: boolean = true;
 
   title: string = 'ClientApp';

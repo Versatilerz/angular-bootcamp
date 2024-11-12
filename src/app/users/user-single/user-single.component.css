@@ -1,0 +1,11 @@
+.user-single-grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+}
+
+.user-border {
+  border: 2px solid rgb(55, 53, 53);
+  background-color: rgb(193, 192, 189);
+  margin: 10px 0 10px 0;
+  padding: 10px;
+}
